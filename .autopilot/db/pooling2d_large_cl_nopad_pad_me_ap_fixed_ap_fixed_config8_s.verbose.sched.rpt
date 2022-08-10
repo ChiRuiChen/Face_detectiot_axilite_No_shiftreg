@@ -1,0 +1,354 @@
+
+
+================================================================
+== Vivado HLS Report for 'pooling2d_large_cl_nopad_pad_me_ap_fixed_ap_fixed_config8_s'
+================================================================
+* Date:           Wed Aug 10 16:29:58 2022
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        myproject_prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  | 5.00 ns | 4.321 ns |   0.62 ns  |
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+--------+---------+---------+
+    |  Latency (cycles) |  Latency (absolute) |     Interval     | Pipeline|
+    |   min   |   max   |    min   |    max   |   min  |   max   |   Type  |
+    +---------+---------+----------+----------+--------+---------+---------+
+    |   648001|  1484101| 3.240 ms | 7.421 ms |  648001|  1484101|   none  |
+    +---------+---------+----------+----------+--------+---------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------+---------+---------+------------+-----------+-----------+------+----------+
+        |                 |  Latency (cycles) |  Iteration |  Initiation Interval  | Trip |          |
+        |    Loop Name    |   min   |   max   |   Latency  |  achieved |   target  | Count| Pipelined|
+        +-----------------+---------+---------+------------+-----------+-----------+------+----------+
+        |- Loop 1         |   648000|  1484100| 720 ~ 1649 |          -|          -|   900|    no    |
+        | + Loop 1.1      |       64|       64|           2|          -|          -|    32|    no    |
+        | + Loop 1.2      |      928|      928|          29|          -|          -|    32|    no    |
+        |  ++ Loop 1.2.1  |       16|       16|           4|          -|          -|     4|    no    |
+        |  ++ Loop 1.2.2  |        9|        9|           3|          -|          -|     3|    no    |
+        +-----------------+---------+---------+------------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 17
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 5 
+4 --> 3 
+5 --> 6 
+6 --> 7 15 16 17 
+7 --> 8 11 
+8 --> 9 
+9 --> 10 
+10 --> 7 
+11 --> 12 
+12 --> 13 6 
+13 --> 14 
+14 --> 12 
+15 --> 17 
+16 --> 17 
+17 --> 2 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i16* %res_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 18 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i16* %data_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 19 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%tmpdata_V = alloca [32 x i16], align 2" [firmware/nnet_utils/nnet_pooling_stream.h:481]   --->   Operation 20 'alloca' 'tmpdata_V' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 4> <RAM>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%pool_V = alloca [4 x i16], align 2" [firmware/nnet_utils/nnet_pooling_stream.h:503]   --->   Operation 21 'alloca' 'pool_V' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 4> <RAM>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%pool_V_addr = getelementptr [4 x i16]* %pool_V, i64 0, i64 0" [firmware/nnet_utils/nnet_pooling_stream.h:511]   --->   Operation 22 'getelementptr' 'pool_V_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (1.76ns)   --->   "br label %.preheader56" [firmware/nnet_utils/nnet_pooling_stream.h:484]   --->   Operation 23 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 1.77>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%i_ih_0 = phi i10 [ %i_ih, %11 ], [ 0, %codeRepl ]"   --->   Operation 24 'phi' 'i_ih_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (1.77ns)   --->   "%icmp_ln484 = icmp eq i10 %i_ih_0, -124" [firmware/nnet_utils/nnet_pooling_stream.h:484]   --->   Operation 25 'icmp' 'icmp_ln484' <Predicate = true> <Delay = 1.77> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 900, i64 900, i64 900)"   --->   Operation 26 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (1.73ns)   --->   "%i_ih = add i10 %i_ih_0, 1" [firmware/nnet_utils/nnet_pooling_stream.h:484]   --->   Operation 27 'add' 'i_ih' <Predicate = true> <Delay = 1.73> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "br i1 %icmp_ln484, label %12, label %.preheader55.preheader" [firmware/nnet_utils/nnet_pooling_stream.h:484]   --->   Operation 28 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (1.76ns)   --->   "br label %.preheader55" [firmware/nnet_utils/nnet_pooling_stream.h:489]   --->   Operation 29 'br' <Predicate = (!icmp_ln484)> <Delay = 1.76>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "ret void" [firmware/nnet_utils/nnet_pooling_stream.h:542]   --->   Operation 30 'ret' <Predicate = (icmp_ln484)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 2.18>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%i0_0 = phi i6 [ %i0, %0 ], [ 0, %.preheader55.preheader ]"   --->   Operation 31 'phi' 'i0_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 32 [1/1] (1.42ns)   --->   "%icmp_ln489 = icmp eq i6 %i0_0, -32" [firmware/nnet_utils/nnet_pooling_stream.h:489]   --->   Operation 32 'icmp' 'icmp_ln489' <Predicate = true> <Delay = 1.42> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "%empty_48 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32)"   --->   Operation 33 'speclooptripcount' 'empty_48' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 34 [1/1] (1.82ns)   --->   "%i0 = add i6 %i0_0, 1" [firmware/nnet_utils/nnet_pooling_stream.h:489]   --->   Operation 34 'add' 'i0' <Predicate = true> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 35 [1/1] (0.00ns)   --->   "br i1 %icmp_ln489, label %1, label %0" [firmware/nnet_utils/nnet_pooling_stream.h:489]   --->   Operation 35 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 36 [1/1] (2.18ns)   --->   "%tmp_V_11 = call i16 @_ssdm_op_Read.ap_fifo.volatile.i16P(i16* %data_V_V)" [firmware/nnet_utils/nnet_pooling_stream.h:491]   --->   Operation 36 'read' 'tmp_V_11' <Predicate = (!icmp_ln489)> <Delay = 2.18> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.61> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 5> <FIFO>
+ST_3 : Operation 37 [2/2] (0.00ns)   --->   "call fastcc void @"cnnshift_arr<ap_fixed,ap_fixed<16,4,5,3,0>,config8>"([32 x i16]* %tmpdata_V, [128 x i16]* @layer_in_V_5)" [firmware/nnet_utils/nnet_pooling_stream.h:497]   --->   Operation 37 'call' <Predicate = (icmp_ln489)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 4 <SV = 3> <Delay = 2.32>
+ST_4 : Operation 38 [1/1] (0.00ns)   --->   "%zext_ln492 = zext i6 %i0_0 to i64" [firmware/nnet_utils/nnet_pooling_stream.h:492]   --->   Operation 38 'zext' 'zext_ln492' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 39 [1/1] (0.00ns)   --->   "%tmpdata_V_addr = getelementptr [32 x i16]* %tmpdata_V, i64 0, i64 %zext_ln492" [firmware/nnet_utils/nnet_pooling_stream.h:492]   --->   Operation 39 'getelementptr' 'tmpdata_V_addr' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 40 [1/1] (2.32ns)   --->   "store i16 %tmp_V_11, i16* %tmpdata_V_addr, align 2" [firmware/nnet_utils/nnet_pooling_stream.h:492]   --->   Operation 40 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 4> <RAM>
+ST_4 : Operation 41 [1/1] (0.00ns)   --->   "br label %.preheader55" [firmware/nnet_utils/nnet_pooling_stream.h:489]   --->   Operation 41 'br' <Predicate = true> <Delay = 0.00>
+
+State 5 <SV = 3> <Delay = 3.45>
+ST_5 : Operation 42 [1/2] (0.00ns)   --->   "call fastcc void @"cnnshift_arr<ap_fixed,ap_fixed<16,4,5,3,0>,config8>"([32 x i16]* %tmpdata_V, [128 x i16]* @layer_in_V_5)" [firmware/nnet_utils/nnet_pooling_stream.h:497]   --->   Operation 42 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 43 [1/1] (0.00ns)   --->   "%sX_load = load i32* @sX, align 4" [firmware/nnet_utils/nnet_pooling_stream.h:498]   --->   Operation 43 'load' 'sX_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 44 [1/1] (2.47ns)   --->   "%icmp_ln498 = icmp eq i32 %sX_load, 1" [firmware/nnet_utils/nnet_pooling_stream.h:498]   --->   Operation 44 'icmp' 'icmp_ln498' <Predicate = true> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 45 [1/1] (0.00ns)   --->   "%sY_load = load i32* @sY, align 4" [firmware/nnet_utils/nnet_pooling_stream.h:498]   --->   Operation 45 'load' 'sY_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 46 [1/1] (2.47ns)   --->   "%icmp_ln498_1 = icmp eq i32 %sY_load, 1" [firmware/nnet_utils/nnet_pooling_stream.h:498]   --->   Operation 46 'icmp' 'icmp_ln498_1' <Predicate = true> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 47 [1/1] (0.00ns)   --->   "%pY_load = load i32* @pY, align 4" [firmware/nnet_utils/nnet_pooling_stream.h:498]   --->   Operation 47 'load' 'pY_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 48 [1/1] (2.47ns)   --->   "%icmp_ln498_2 = icmp sgt i32 %pY_load, 0" [firmware/nnet_utils/nnet_pooling_stream.h:498]   --->   Operation 48 'icmp' 'icmp_ln498_2' <Predicate = true> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 49 [1/1] (0.00ns)   --->   "%pX_load = load i32* @pX, align 4" [firmware/nnet_utils/nnet_pooling_stream.h:498]   --->   Operation 49 'load' 'pX_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 50 [1/1] (2.47ns)   --->   "%icmp_ln498_3 = icmp sgt i32 %pX_load, 0" [firmware/nnet_utils/nnet_pooling_stream.h:498]   --->   Operation 50 'icmp' 'icmp_ln498_3' <Predicate = true> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 51 [1/1] (0.00ns) (grouped into LUT with out node and_ln498_2)   --->   "%and_ln498 = and i1 %icmp_ln498, %icmp_ln498_1" [firmware/nnet_utils/nnet_pooling_stream.h:498]   --->   Operation 51 'and' 'and_ln498' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 52 [1/1] (0.00ns) (grouped into LUT with out node and_ln498_2)   --->   "%and_ln498_1 = and i1 %icmp_ln498_2, %icmp_ln498_3" [firmware/nnet_utils/nnet_pooling_stream.h:498]   --->   Operation 52 'and' 'and_ln498_1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 53 [1/1] (0.97ns) (out node of the LUT)   --->   "%and_ln498_2 = and i1 %and_ln498_1, %and_ln498" [firmware/nnet_utils/nnet_pooling_stream.h:498]   --->   Operation 53 'and' 'and_ln498_2' <Predicate = true> <Delay = 0.97> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.97> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 54 [1/1] (0.00ns)   --->   "br i1 %and_ln498_2, label %.preheader54.preheader, label %.loopexit" [firmware/nnet_utils/nnet_pooling_stream.h:498]   --->   Operation 54 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 55 [1/1] (1.76ns)   --->   "br label %.preheader54" [firmware/nnet_utils/nnet_pooling_stream.h:500]   --->   Operation 55 'br' <Predicate = (and_ln498_2)> <Delay = 1.76>
+
+State 6 <SV = 4> <Delay = 4.32>
+ST_6 : Operation 56 [1/1] (0.00ns)   --->   "%i1_0 = phi i6 [ %i1, %5 ], [ 0, %.preheader54.preheader ]"   --->   Operation 56 'phi' 'i1_0' <Predicate = (and_ln498_2)> <Delay = 0.00>
+ST_6 : Operation 57 [1/1] (0.00ns)   --->   "%zext_ln500 = zext i6 %i1_0 to i7" [firmware/nnet_utils/nnet_pooling_stream.h:500]   --->   Operation 57 'zext' 'zext_ln500' <Predicate = (and_ln498_2)> <Delay = 0.00>
+ST_6 : Operation 58 [1/1] (1.42ns)   --->   "%icmp_ln500 = icmp eq i6 %i1_0, -32" [firmware/nnet_utils/nnet_pooling_stream.h:500]   --->   Operation 58 'icmp' 'icmp_ln500' <Predicate = (and_ln498_2)> <Delay = 1.42> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 59 [1/1] (0.00ns)   --->   "%empty_49 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32)"   --->   Operation 59 'speclooptripcount' 'empty_49' <Predicate = (and_ln498_2)> <Delay = 0.00>
+ST_6 : Operation 60 [1/1] (1.82ns)   --->   "%i1 = add i6 %i1_0, 1" [firmware/nnet_utils/nnet_pooling_stream.h:500]   --->   Operation 60 'add' 'i1' <Predicate = (and_ln498_2)> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 61 [1/1] (0.00ns)   --->   "br i1 %icmp_ln500, label %.loopexit.loopexit, label %.preheader.preheader" [firmware/nnet_utils/nnet_pooling_stream.h:500]   --->   Operation 61 'br' <Predicate = (and_ln498_2)> <Delay = 0.00>
+ST_6 : Operation 62 [1/1] (1.76ns)   --->   "br label %.preheader" [firmware/nnet_utils/nnet_pooling_stream.h:506]   --->   Operation 62 'br' <Predicate = (and_ln498_2 & !icmp_ln500)> <Delay = 1.76>
+ST_6 : Operation 63 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 63 'br' <Predicate = (and_ln498_2 & icmp_ln500)> <Delay = 0.00>
+ST_6 : Operation 64 [1/1] (2.47ns)   --->   "%icmp_ln522 = icmp eq i32 %pX_load, 29" [firmware/nnet_utils/nnet_pooling_stream.h:522]   --->   Operation 64 'icmp' 'icmp_ln522' <Predicate = (icmp_ln500) | (!and_ln498_2)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 65 [1/1] (0.00ns)   --->   "br i1 %icmp_ln522, label %6, label %10" [firmware/nnet_utils/nnet_pooling_stream.h:522]   --->   Operation 65 'br' <Predicate = (icmp_ln500) | (!and_ln498_2)> <Delay = 0.00>
+ST_6 : Operation 66 [1/1] (2.55ns)   --->   "%add_ln535 = add nsw i32 %pX_load, 1" [firmware/nnet_utils/nnet_pooling_stream.h:535]   --->   Operation 66 'add' 'add_ln535' <Predicate = (icmp_ln500 & !icmp_ln522) | (!and_ln498_2 & !icmp_ln522)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 67 [1/1] (1.76ns)   --->   "store i32 %add_ln535, i32* @pX, align 4" [firmware/nnet_utils/nnet_pooling_stream.h:535]   --->   Operation 67 'store' <Predicate = (icmp_ln500 & !icmp_ln522) | (!and_ln498_2 & !icmp_ln522)> <Delay = 1.76>
+ST_6 : Operation 68 [1/1] (2.55ns)   --->   "%add_ln537 = add i32 %sX_load, 1" [firmware/nnet_utils/nnet_pooling_stream.h:537]   --->   Operation 68 'add' 'add_ln537' <Predicate = (icmp_ln500 & !icmp_ln522 & !icmp_ln498) | (!and_ln498_2 & !icmp_ln522 & !icmp_ln498)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 69 [1/1] (0.69ns)   --->   "%select_ln537 = select i1 %icmp_ln498, i32 0, i32 %add_ln537" [firmware/nnet_utils/nnet_pooling_stream.h:537]   --->   Operation 69 'select' 'select_ln537' <Predicate = (icmp_ln500 & !icmp_ln522) | (!and_ln498_2 & !icmp_ln522)> <Delay = 0.69> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 70 [1/1] (1.76ns)   --->   "store i32 0, i32* @pX, align 4" [firmware/nnet_utils/nnet_pooling_stream.h:524]   --->   Operation 70 'store' <Predicate = (icmp_ln500 & icmp_ln522) | (!and_ln498_2 & icmp_ln522)> <Delay = 1.76>
+ST_6 : Operation 71 [1/1] (1.76ns)   --->   "store i32 0, i32* @sX, align 4" [firmware/nnet_utils/nnet_pooling_stream.h:525]   --->   Operation 71 'store' <Predicate = (icmp_ln500 & icmp_ln522) | (!and_ln498_2 & icmp_ln522)> <Delay = 1.76>
+ST_6 : Operation 72 [1/1] (2.47ns)   --->   "%icmp_ln526 = icmp eq i32 %pY_load, 29" [firmware/nnet_utils/nnet_pooling_stream.h:526]   --->   Operation 72 'icmp' 'icmp_ln526' <Predicate = (icmp_ln500 & icmp_ln522) | (!and_ln498_2 & icmp_ln522)> <Delay = 2.47> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 73 [1/1] (0.00ns)   --->   "br i1 %icmp_ln526, label %7, label %8" [firmware/nnet_utils/nnet_pooling_stream.h:526]   --->   Operation 73 'br' <Predicate = (icmp_ln500 & icmp_ln522) | (!and_ln498_2 & icmp_ln522)> <Delay = 0.00>
+ST_6 : Operation 74 [1/1] (2.55ns)   --->   "%add_ln530 = add nsw i32 %pY_load, 1" [firmware/nnet_utils/nnet_pooling_stream.h:530]   --->   Operation 74 'add' 'add_ln530' <Predicate = (icmp_ln500 & icmp_ln522 & !icmp_ln526) | (!and_ln498_2 & icmp_ln522 & !icmp_ln526)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 75 [1/1] (1.76ns)   --->   "store i32 %add_ln530, i32* @pY, align 4" [firmware/nnet_utils/nnet_pooling_stream.h:530]   --->   Operation 75 'store' <Predicate = (icmp_ln500 & icmp_ln522 & !icmp_ln526) | (!and_ln498_2 & icmp_ln522 & !icmp_ln526)> <Delay = 1.76>
+ST_6 : Operation 76 [1/1] (2.55ns)   --->   "%add_ln532 = add i32 %sY_load, 1" [firmware/nnet_utils/nnet_pooling_stream.h:532]   --->   Operation 76 'add' 'add_ln532' <Predicate = (icmp_ln500 & icmp_ln522 & !icmp_ln526 & !icmp_ln498_1) | (!and_ln498_2 & icmp_ln522 & !icmp_ln526 & !icmp_ln498_1)> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 77 [1/1] (0.69ns)   --->   "%select_ln532 = select i1 %icmp_ln498_1, i32 0, i32 %add_ln532" [firmware/nnet_utils/nnet_pooling_stream.h:532]   --->   Operation 77 'select' 'select_ln532' <Predicate = (icmp_ln500 & icmp_ln522 & !icmp_ln526) | (!and_ln498_2 & icmp_ln522 & !icmp_ln526)> <Delay = 0.69> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 78 [1/1] (1.76ns)   --->   "store i32 0, i32* @pY, align 4" [firmware/nnet_utils/nnet_pooling_stream.h:527]   --->   Operation 78 'store' <Predicate = (icmp_ln500 & icmp_ln522 & icmp_ln526) | (!and_ln498_2 & icmp_ln522 & icmp_ln526)> <Delay = 1.76>
+ST_6 : Operation 79 [1/1] (1.76ns)   --->   "br label %9" [firmware/nnet_utils/nnet_pooling_stream.h:529]   --->   Operation 79 'br' <Predicate = (icmp_ln500 & icmp_ln522 & icmp_ln526) | (!and_ln498_2 & icmp_ln522 & icmp_ln526)> <Delay = 1.76>
+
+State 7 <SV = 5> <Delay = 2.32>
+ST_7 : Operation 80 [1/1] (0.00ns)   --->   "%i2_0 = phi i3 [ %i2, %2 ], [ 0, %.preheader.preheader ]"   --->   Operation 80 'phi' 'i2_0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 81 [1/1] (1.13ns)   --->   "%icmp_ln506 = icmp eq i3 %i2_0, -4" [firmware/nnet_utils/nnet_pooling_stream.h:506]   --->   Operation 81 'icmp' 'icmp_ln506' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 82 [1/1] (0.00ns)   --->   "%empty_50 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 82 'speclooptripcount' 'empty_50' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 83 [1/1] (1.65ns)   --->   "%i2 = add i3 %i2_0, 1" [firmware/nnet_utils/nnet_pooling_stream.h:506]   --->   Operation 83 'add' 'i2' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 84 [1/1] (0.00ns)   --->   "br i1 %icmp_ln506, label %3, label %2" [firmware/nnet_utils/nnet_pooling_stream.h:506]   --->   Operation 84 'br' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 85 [1/1] (0.00ns)   --->   "%trunc_ln508 = trunc i3 %i2_0 to i2" [firmware/nnet_utils/nnet_pooling_stream.h:508]   --->   Operation 85 'trunc' 'trunc_ln508' <Predicate = (!icmp_ln506)> <Delay = 0.00>
+ST_7 : Operation 86 [1/1] (0.00ns)   --->   "%shl_ln = call i7 @_ssdm_op_BitConcatenate.i7.i2.i5(i2 %trunc_ln508, i5 0)" [firmware/nnet_utils/nnet_pooling_stream.h:508]   --->   Operation 86 'bitconcatenate' 'shl_ln' <Predicate = (!icmp_ln506)> <Delay = 0.00>
+ST_7 : Operation 87 [1/1] (1.87ns)   --->   "%add_ln508 = add i7 %zext_ln500, %shl_ln" [firmware/nnet_utils/nnet_pooling_stream.h:508]   --->   Operation 87 'add' 'add_ln508' <Predicate = (!icmp_ln506)> <Delay = 1.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 88 [2/2] (2.32ns)   --->   "%pool_res_V = load i16* %pool_V_addr, align 2" [firmware/nnet_utils/nnet_pooling_stream.h:511]   --->   Operation 88 'load' 'pool_res_V' <Predicate = (icmp_ln506)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 4> <RAM>
+
+State 8 <SV = 6> <Delay = 3.25>
+ST_8 : Operation 89 [1/1] (0.00ns)   --->   "%zext_ln508_1 = zext i7 %add_ln508 to i64" [firmware/nnet_utils/nnet_pooling_stream.h:508]   --->   Operation 89 'zext' 'zext_ln508_1' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 90 [1/1] (0.00ns)   --->   "%layer_in_V_5_addr = getelementptr [128 x i16]* @layer_in_V_5, i64 0, i64 %zext_ln508_1" [firmware/nnet_utils/nnet_pooling_stream.h:508]   --->   Operation 90 'getelementptr' 'layer_in_V_5_addr' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 91 [2/2] (3.25ns)   --->   "%layer_in_V_5_load = load i16* %layer_in_V_5_addr, align 2" [firmware/nnet_utils/nnet_pooling_stream.h:508]   --->   Operation 91 'load' 'layer_in_V_5_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 4> <RAM>
+
+State 9 <SV = 7> <Delay = 3.25>
+ST_9 : Operation 92 [1/2] (3.25ns)   --->   "%layer_in_V_5_load = load i16* %layer_in_V_5_addr, align 2" [firmware/nnet_utils/nnet_pooling_stream.h:508]   --->   Operation 92 'load' 'layer_in_V_5_load' <Predicate = true> <Delay = 3.25> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 4> <RAM>
+
+State 10 <SV = 8> <Delay = 2.32>
+ST_10 : Operation 93 [1/1] (0.00ns)   --->   "%zext_ln508 = zext i3 %i2_0 to i64" [firmware/nnet_utils/nnet_pooling_stream.h:508]   --->   Operation 93 'zext' 'zext_ln508' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 94 [1/1] (0.00ns)   --->   "%pool_V_addr_1 = getelementptr [4 x i16]* %pool_V, i64 0, i64 %zext_ln508" [firmware/nnet_utils/nnet_pooling_stream.h:508]   --->   Operation 94 'getelementptr' 'pool_V_addr_1' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 95 [1/1] (2.32ns)   --->   "store i16 %layer_in_V_5_load, i16* %pool_V_addr_1, align 2" [firmware/nnet_utils/nnet_pooling_stream.h:508]   --->   Operation 95 'store' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 4> <RAM>
+ST_10 : Operation 96 [1/1] (0.00ns)   --->   "br label %.preheader" [firmware/nnet_utils/nnet_pooling_stream.h:506]   --->   Operation 96 'br' <Predicate = true> <Delay = 0.00>
+
+State 11 <SV = 6> <Delay = 2.32>
+ST_11 : Operation 97 [1/2] (2.32ns)   --->   "%pool_res_V = load i16* %pool_V_addr, align 2" [firmware/nnet_utils/nnet_pooling_stream.h:511]   --->   Operation 97 'load' 'pool_res_V' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 4> <RAM>
+ST_11 : Operation 98 [1/1] (1.76ns)   --->   "br label %4" [firmware/nnet_utils/nnet_pooling_stream.h:512]   --->   Operation 98 'br' <Predicate = true> <Delay = 1.76>
+
+State 12 <SV = 7> <Delay = 2.32>
+ST_12 : Operation 99 [1/1] (0.00ns)   --->   "%tmp_V = phi i16 [ %pool_res_V, %3 ], [ %pool_res_V_1, %._crit_edge66 ]"   --->   Operation 99 'phi' 'tmp_V' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 100 [1/1] (0.00ns)   --->   "%i_0 = phi i3 [ 1, %3 ], [ %i, %._crit_edge66 ]"   --->   Operation 100 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 101 [1/1] (1.13ns)   --->   "%icmp_ln512 = icmp eq i3 %i_0, -4" [firmware/nnet_utils/nnet_pooling_stream.h:512]   --->   Operation 101 'icmp' 'icmp_ln512' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 102 [1/1] (0.00ns)   --->   "%empty_51 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)"   --->   Operation 102 'speclooptripcount' 'empty_51' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 103 [1/1] (0.00ns)   --->   "br i1 %icmp_ln512, label %5, label %._crit_edge66" [firmware/nnet_utils/nnet_pooling_stream.h:512]   --->   Operation 103 'br' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 104 [1/1] (0.00ns)   --->   "%zext_ln513 = zext i3 %i_0 to i64" [firmware/nnet_utils/nnet_pooling_stream.h:513]   --->   Operation 104 'zext' 'zext_ln513' <Predicate = (!icmp_ln512)> <Delay = 0.00>
+ST_12 : Operation 105 [1/1] (0.00ns)   --->   "%pool_V_addr_2 = getelementptr [4 x i16]* %pool_V, i64 0, i64 %zext_ln513" [firmware/nnet_utils/nnet_pooling_stream.h:513]   --->   Operation 105 'getelementptr' 'pool_V_addr_2' <Predicate = (!icmp_ln512)> <Delay = 0.00>
+ST_12 : Operation 106 [2/2] (2.32ns)   --->   "%pool_V_load = load i16* %pool_V_addr_2, align 2" [firmware/nnet_utils/nnet_pooling_stream.h:513]   --->   Operation 106 'load' 'pool_V_load' <Predicate = (!icmp_ln512)> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 4> <RAM>
+ST_12 : Operation 107 [1/1] (1.65ns)   --->   "%i = add i3 %i_0, 1" [firmware/nnet_utils/nnet_pooling_stream.h:512]   --->   Operation 107 'add' 'i' <Predicate = (!icmp_ln512)> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 108 [1/1] (2.18ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i16P(i16* %res_V_V, i16 %tmp_V)" [firmware/nnet_utils/nnet_pooling_stream.h:516]   --->   Operation 108 'write' <Predicate = (icmp_ln512)> <Delay = 2.18> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.61> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 5> <FIFO>
+ST_12 : Operation 109 [1/1] (0.00ns)   --->   "br label %.preheader54" [firmware/nnet_utils/nnet_pooling_stream.h:500]   --->   Operation 109 'br' <Predicate = (icmp_ln512)> <Delay = 0.00>
+
+State 13 <SV = 8> <Delay = 2.32>
+ST_13 : Operation 110 [1/2] (2.32ns)   --->   "%pool_V_load = load i16* %pool_V_addr_2, align 2" [firmware/nnet_utils/nnet_pooling_stream.h:513]   --->   Operation 110 'load' 'pool_V_load' <Predicate = true> <Delay = 2.32> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 4> <RAM>
+
+State 14 <SV = 9> <Delay = 3.23>
+ST_14 : Operation 111 [1/1] (2.42ns)   --->   "%icmp_ln1494 = icmp sgt i16 %pool_V_load, %tmp_V" [firmware/nnet_utils/nnet_pooling_stream.h:513]   --->   Operation 111 'icmp' 'icmp_ln1494' <Predicate = true> <Delay = 2.42> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 112 [1/1] (0.80ns)   --->   "%pool_res_V_1 = select i1 %icmp_ln1494, i16 %pool_V_load, i16 %tmp_V" [firmware/nnet_utils/nnet_pooling_stream.h:513]   --->   Operation 112 'select' 'pool_res_V_1' <Predicate = true> <Delay = 0.80> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.69> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_14 : Operation 113 [1/1] (0.00ns)   --->   "br label %4" [firmware/nnet_utils/nnet_pooling_stream.h:512]   --->   Operation 113 'br' <Predicate = true> <Delay = 0.00>
+
+State 15 <SV = 5> <Delay = 1.76>
+ST_15 : Operation 114 [1/1] (1.76ns)   --->   "store i32 %select_ln537, i32* @sX, align 4" [firmware/nnet_utils/nnet_pooling_stream.h:537]   --->   Operation 114 'store' <Predicate = true> <Delay = 1.76>
+ST_15 : Operation 115 [1/1] (0.00ns)   --->   "br label %11"   --->   Operation 115 'br' <Predicate = true> <Delay = 0.00>
+
+State 16 <SV = 5> <Delay = 1.76>
+ST_16 : Operation 116 [1/1] (1.76ns)   --->   "br label %9"   --->   Operation 116 'br' <Predicate = true> <Delay = 1.76>
+
+State 17 <SV = 6> <Delay = 0.00>
+ST_17 : Operation 117 [1/1] (0.00ns)   --->   "%storemerge = phi i32 [ %select_ln532, %8 ], [ 0, %7 ]" [firmware/nnet_utils/nnet_pooling_stream.h:532]   --->   Operation 117 'phi' 'storemerge' <Predicate = (icmp_ln522)> <Delay = 0.00>
+ST_17 : Operation 118 [1/1] (0.00ns)   --->   "store i32 %storemerge, i32* @sY, align 4" [firmware/nnet_utils/nnet_pooling_stream.h:528]   --->   Operation 118 'store' <Predicate = (icmp_ln522)> <Delay = 0.00>
+ST_17 : Operation 119 [1/1] (0.00ns)   --->   "br label %11" [firmware/nnet_utils/nnet_pooling_stream.h:534]   --->   Operation 119 'br' <Predicate = (icmp_ln522)> <Delay = 0.00>
+ST_17 : Operation 120 [1/1] (0.00ns)   --->   "br label %.preheader56" [firmware/nnet_utils/nnet_pooling_stream.h:484]   --->   Operation 120 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i_ih') with incoming values : ('i_ih', firmware/nnet_utils/nnet_pooling_stream.h:484) [50]  (1.77 ns)
+
+ <State 2>: 1.77ns
+The critical path consists of the following:
+	'phi' operation ('i_ih') with incoming values : ('i_ih', firmware/nnet_utils/nnet_pooling_stream.h:484) [50]  (0 ns)
+	'icmp' operation ('icmp_ln484', firmware/nnet_utils/nnet_pooling_stream.h:484) [51]  (1.77 ns)
+
+ <State 3>: 2.19ns
+The critical path consists of the following:
+	fifo read on port 'data_V_V' (firmware/nnet_utils/nnet_pooling_stream.h:491) [64]  (2.19 ns)
+
+ <State 4>: 2.32ns
+The critical path consists of the following:
+	'getelementptr' operation ('tmpdata_V_addr', firmware/nnet_utils/nnet_pooling_stream.h:492) [66]  (0 ns)
+	'store' operation ('store_ln492', firmware/nnet_utils/nnet_pooling_stream.h:492) of variable 'tmp.V', firmware/nnet_utils/nnet_pooling_stream.h:491 on array 'tmpdata.V', firmware/nnet_utils/nnet_pooling_stream.h:481 [67]  (2.32 ns)
+
+ <State 5>: 3.45ns
+The critical path consists of the following:
+	'load' operation ('sX_load', firmware/nnet_utils/nnet_pooling_stream.h:498) on static variable 'sX' [71]  (0 ns)
+	'icmp' operation ('icmp_ln498', firmware/nnet_utils/nnet_pooling_stream.h:498) [72]  (2.47 ns)
+	'and' operation ('and_ln498', firmware/nnet_utils/nnet_pooling_stream.h:498) [79]  (0 ns)
+	'and' operation ('and_ln498_2', firmware/nnet_utils/nnet_pooling_stream.h:498) [81]  (0.978 ns)
+
+ <State 6>: 4.32ns
+The critical path consists of the following:
+	'add' operation ('add_ln535', firmware/nnet_utils/nnet_pooling_stream.h:535) [137]  (2.55 ns)
+	'store' operation ('store_ln535', firmware/nnet_utils/nnet_pooling_stream.h:535) of variable 'add_ln535', firmware/nnet_utils/nnet_pooling_stream.h:535 on static variable 'pX' [138]  (1.77 ns)
+
+ <State 7>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('pool_res.V', firmware/nnet_utils/nnet_pooling_stream.h:511) on array 'pool.V', firmware/nnet_utils/nnet_pooling_stream.h:503 [112]  (2.32 ns)
+
+ <State 8>: 3.25ns
+The critical path consists of the following:
+	'getelementptr' operation ('layer_in_V_5_addr', firmware/nnet_utils/nnet_pooling_stream.h:508) [106]  (0 ns)
+	'load' operation ('layer_in_V_5_load', firmware/nnet_utils/nnet_pooling_stream.h:508) on array 'layer_in_V_5' [107]  (3.25 ns)
+
+ <State 9>: 3.25ns
+The critical path consists of the following:
+	'load' operation ('layer_in_V_5_load', firmware/nnet_utils/nnet_pooling_stream.h:508) on array 'layer_in_V_5' [107]  (3.25 ns)
+
+ <State 10>: 2.32ns
+The critical path consists of the following:
+	'getelementptr' operation ('pool_V_addr_1', firmware/nnet_utils/nnet_pooling_stream.h:508) [108]  (0 ns)
+	'store' operation ('store_ln508', firmware/nnet_utils/nnet_pooling_stream.h:508) of variable 'layer_in_V_5_load', firmware/nnet_utils/nnet_pooling_stream.h:508 on array 'pool.V', firmware/nnet_utils/nnet_pooling_stream.h:503 [109]  (2.32 ns)
+
+ <State 11>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('pool_res.V', firmware/nnet_utils/nnet_pooling_stream.h:511) on array 'pool.V', firmware/nnet_utils/nnet_pooling_stream.h:503 [112]  (2.32 ns)
+
+ <State 12>: 2.32ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', firmware/nnet_utils/nnet_pooling_stream.h:512) [116]  (0 ns)
+	'getelementptr' operation ('pool_V_addr_2', firmware/nnet_utils/nnet_pooling_stream.h:513) [122]  (0 ns)
+	'load' operation ('pool_V_load', firmware/nnet_utils/nnet_pooling_stream.h:513) on array 'pool.V', firmware/nnet_utils/nnet_pooling_stream.h:503 [123]  (2.32 ns)
+
+ <State 13>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('pool_V_load', firmware/nnet_utils/nnet_pooling_stream.h:513) on array 'pool.V', firmware/nnet_utils/nnet_pooling_stream.h:503 [123]  (2.32 ns)
+
+ <State 14>: 3.23ns
+The critical path consists of the following:
+	'icmp' operation ('icmp_ln1494', firmware/nnet_utils/nnet_pooling_stream.h:513) [124]  (2.43 ns)
+	'select' operation ('pool_res.V', firmware/nnet_utils/nnet_pooling_stream.h:513) [125]  (0.805 ns)
+
+ <State 15>: 1.77ns
+The critical path consists of the following:
+	'store' operation ('store_ln537', firmware/nnet_utils/nnet_pooling_stream.h:537) of variable 'select_ln537', firmware/nnet_utils/nnet_pooling_stream.h:537 on static variable 'sX' [141]  (1.77 ns)
+
+ <State 16>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('storemerge', firmware/nnet_utils/nnet_pooling_stream.h:532) with incoming values : ('select_ln532', firmware/nnet_utils/nnet_pooling_stream.h:532) [158]  (1.77 ns)
+
+ <State 17>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

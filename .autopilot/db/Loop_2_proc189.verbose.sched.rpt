@@ -1,0 +1,163 @@
+
+
+================================================================
+== Vivado HLS Report for 'Loop_2_proc189'
+================================================================
+* Date:           Wed Aug 10 16:30:13 2022
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        myproject_prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  | 5.00 ns | 2.322 ns |   0.62 ns  |
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |        8|        8| 40.000 ns | 40.000 ns |    8|    8|   none  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |        6|        6|         3|          1|          1|     5|    yes   |
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 5
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 2 3 4 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 5 3 
+3 --> 4 
+4 --> 2 
+5 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecMemCore([5 x i16]* %out_V, [1 x i8]* @p_str, [7 x i8]* @RAM_1P_str, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 6 'specmemcore' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i16* %out_local_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 7 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (1.76ns)   --->   "br label %0" [firmware/myproject_axi.cpp:29]   --->   Operation 8 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 1.65>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%i1_0 = phi i3 [ 0, %newFuncRoot ], [ %i, %hls_label_1 ]"   --->   Operation 9 'phi' 'i1_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 10 [1/1] (1.13ns)   --->   "%icmp_ln29 = icmp eq i3 %i1_0, -3" [firmware/myproject_axi.cpp:29]   --->   Operation 10 'icmp' 'icmp_ln29' <Predicate = true> <Delay = 1.13> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.13> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%empty_218 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 5, i64 5, i64 5)"   --->   Operation 11 'speclooptripcount' 'empty_218' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (1.65ns)   --->   "%i = add i3 %i1_0, 1" [firmware/myproject_axi.cpp:29]   --->   Operation 12 'add' 'i' <Predicate = true> <Delay = 1.65> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.65> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "br i1 %icmp_ln29, label %.exitStub, label %hls_label_1" [firmware/myproject_axi.cpp:29]   --->   Operation 13 'br' <Predicate = true> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 2.18>
+ST_3 : Operation 14 [1/1] (2.18ns)   --->   "%tmp_V = call i16 @_ssdm_op_Read.ap_fifo.volatile.i16P(i16* %out_local_V_V)" [firmware/myproject_axi.cpp:31]   --->   Operation 14 'read' 'tmp_V' <Predicate = (!icmp_ln29)> <Delay = 2.18> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.61> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 5> <FIFO>
+
+State 4 <SV = 3> <Delay = 2.32>
+ST_4 : Operation 15 [1/1] (0.00ns)   --->   "%tmp_s = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str6)" [firmware/myproject_axi.cpp:29]   --->   Operation 15 'specregionbegin' 'tmp_s' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+ST_4 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [firmware/myproject_axi.cpp:30]   --->   Operation 16 'specpipeline' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+ST_4 : Operation 17 [1/1] (0.00ns)   --->   "%zext_ln32 = zext i3 %i1_0 to i64" [firmware/myproject_axi.cpp:32]   --->   Operation 17 'zext' 'zext_ln32' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+ST_4 : Operation 18 [1/1] (0.00ns)   --->   "%out_V_addr = getelementptr [5 x i16]* %out_V, i64 0, i64 %zext_ln32" [firmware/myproject_axi.cpp:32]   --->   Operation 18 'getelementptr' 'out_V_addr' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+ST_4 : Operation 19 [1/1] (2.32ns)   --->   "store i16 %tmp_V, i16* %out_V_addr, align 2" [firmware/myproject_axi.cpp:32]   --->   Operation 19 'store' <Predicate = (!icmp_ln29)> <Delay = 2.32> <Core = "RAM_1P">   --->   Core 44 'RAM_1P' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 1> <Width = 16> <Depth = 5> <RAM>
+ST_4 : Operation 20 [1/1] (0.00ns)   --->   "%empty_219 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str6, i32 %tmp_s)" [firmware/myproject_axi.cpp:33]   --->   Operation 20 'specregionend' 'empty_219' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+ST_4 : Operation 21 [1/1] (0.00ns)   --->   "br label %0" [firmware/myproject_axi.cpp:29]   --->   Operation 21 'br' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+
+State 5 <SV = 2> <Delay = 0.00>
+ST_5 : Operation 22 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 22 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', firmware/myproject_axi.cpp:29) [7]  (1.77 ns)
+
+ <State 2>: 1.65ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', firmware/myproject_axi.cpp:29) [7]  (0 ns)
+	'add' operation ('i', firmware/myproject_axi.cpp:29) [10]  (1.65 ns)
+
+ <State 3>: 2.19ns
+The critical path consists of the following:
+	fifo read on port 'out_local_V_V' (firmware/myproject_axi.cpp:31) [15]  (2.19 ns)
+
+ <State 4>: 2.32ns
+The critical path consists of the following:
+	'getelementptr' operation ('out_V_addr', firmware/myproject_axi.cpp:32) [17]  (0 ns)
+	'store' operation ('store_ln32', firmware/myproject_axi.cpp:32) of variable 'tmp.V', firmware/myproject_axi.cpp:31 on array 'out_V' [18]  (2.32 ns)
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

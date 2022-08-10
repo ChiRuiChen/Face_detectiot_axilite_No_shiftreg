@@ -1,0 +1,140 @@
+
+
+================================================================
+== Vivado HLS Report for 'myproject_axi'
+================================================================
+* Date:           Wed Aug 10 16:30:36 2022
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        myproject_prj
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  | 5.00 ns | 4.429 ns |   0.62 ns  |
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +----------+----------+-----------+-----------+----------+----------+----------+
+    |   Latency (cycles)  |   Latency (absolute)  |       Interval      | Pipeline |
+    |    min   |    max   |    min    |    max    |    min   |    max   |   Type   |
+    +----------+----------+-----------+-----------+----------+----------+----------+
+    |  11991005|  12406749| 59.955 ms | 62.034 ms |  11892738|  12308482| dataflow |
+    +----------+----------+-----------+-----------+----------+----------+----------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------+----------------+----------+----------+-----------+-----------+----------+----------+----------+
+        |                   |                |   Latency (cycles)  |   Latency (absolute)  |       Interval      | Pipeline |
+        |      Instance     |     Module     |    min   |    max   |    min    |    max    |    min   |    max   |   Type   |
+        +-------------------+----------------+----------+----------+-----------+-----------+----------+----------+----------+
+        |myproject_U0       |myproject       |  11991005|  12406749| 59.955 ms | 62.034 ms |  11892738|  12308482| dataflow |
+        |Loop_1_proc188_U0  |Loop_1_proc188  |      3075|      3075| 15.375 us | 15.375 us |      3075|      3075|   none   |
+        |Loop_2_proc189_U0  |Loop_2_proc189  |         8|         8| 40.000 ns | 40.000 ns |         8|         8|   none   |
+        +-------------------+----------------+----------+----------+-----------+-----------+----------+----------+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       -|      -|    -|
+|FIFO             |        4|      -|      75|    193|    -|
+|Instance         |       83|    197|   22114|  23176|    0|
+|Memory           |        -|      -|       -|      -|    -|
+|Multiplexer      |        -|      -|       -|      -|    -|
+|Register         |        -|      -|       -|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |       87|    197|   22189|  23369|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |       31|     89|      20|     43|    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +--------------------------------+------------------------------+---------+-------+-------+-------+-----+
+    |            Instance            |            Module            | BRAM_18K| DSP48E|   FF  |  LUT  | URAM|
+    +--------------------------------+------------------------------+---------+-------+-------+-------+-----+
+    |Loop_1_proc188_U0               |Loop_1_proc188                |        0|      0|     38|    110|    0|
+    |Loop_2_proc189_U0               |Loop_2_proc189                |        0|      0|     34|    106|    0|
+    |myproject_U0                    |myproject                     |       77|    197|  21852|  22780|    0|
+    |myproject_axi_AXILiteS_s_axi_U  |myproject_axi_AXILiteS_s_axi  |        6|      0|    190|    180|    0|
+    +--------------------------------+------------------------------+---------+-------+-------+-------+-----+
+    |Total                           |                              |       83|    197|  22114|  23176|    0|
+    +--------------------------------+------------------------------+---------+-------+-------+-------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +-----------------+---------+----+----+-----+------+-----+---------+
+    |       Name      | BRAM_18K| FF | LUT| URAM| Depth| Bits| Size:D*B|
+    +-----------------+---------+----+----+-----+------+-----+---------+
+    |in_local_V_V_U   |        4|  70|   0|    -|  3072|   16|    49152|
+    |out_local_V_V_U  |        0|   5|   0|    -|     5|   16|       80|
+    +-----------------+---------+----+----+-----+------+-----+---------+
+    |Total            |        4|  75|   0|    0|  3077|   32|    49232|
+    +-----------------+---------+----+----+-----+------+-----+---------+
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+--------------+---------------+--------------+
+|        RTL Ports       | Dir | Bits|   Protocol   | Source Object |    C Type    |
++------------------------+-----+-----+--------------+---------------+--------------+
+|s_axi_AXILiteS_AWVALID  |  in |    1|     s_axi    |    AXILiteS   |     array    |
+|s_axi_AXILiteS_AWREADY  | out |    1|     s_axi    |    AXILiteS   |     array    |
+|s_axi_AXILiteS_AWADDR   |  in |   15|     s_axi    |    AXILiteS   |     array    |
+|s_axi_AXILiteS_WVALID   |  in |    1|     s_axi    |    AXILiteS   |     array    |
+|s_axi_AXILiteS_WREADY   | out |    1|     s_axi    |    AXILiteS   |     array    |
+|s_axi_AXILiteS_WDATA    |  in |   32|     s_axi    |    AXILiteS   |     array    |
+|s_axi_AXILiteS_WSTRB    |  in |    4|     s_axi    |    AXILiteS   |     array    |
+|s_axi_AXILiteS_ARVALID  |  in |    1|     s_axi    |    AXILiteS   |     array    |
+|s_axi_AXILiteS_ARREADY  | out |    1|     s_axi    |    AXILiteS   |     array    |
+|s_axi_AXILiteS_ARADDR   |  in |   15|     s_axi    |    AXILiteS   |     array    |
+|s_axi_AXILiteS_RVALID   | out |    1|     s_axi    |    AXILiteS   |     array    |
+|s_axi_AXILiteS_RREADY   |  in |    1|     s_axi    |    AXILiteS   |     array    |
+|s_axi_AXILiteS_RDATA    | out |   32|     s_axi    |    AXILiteS   |     array    |
+|s_axi_AXILiteS_RRESP    | out |    2|     s_axi    |    AXILiteS   |     array    |
+|s_axi_AXILiteS_BVALID   | out |    1|     s_axi    |    AXILiteS   |     array    |
+|s_axi_AXILiteS_BREADY   |  in |    1|     s_axi    |    AXILiteS   |     array    |
+|s_axi_AXILiteS_BRESP    | out |    2|     s_axi    |    AXILiteS   |     array    |
+|ap_clk                  |  in |    1| ap_ctrl_none | myproject_axi | return value |
+|ap_rst_n                |  in |    1| ap_ctrl_none | myproject_axi | return value |
++------------------------+-----+-----+--------------+---------------+--------------+
+

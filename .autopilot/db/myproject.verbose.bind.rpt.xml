@@ -1,0 +1,59 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'myproject'" level="0">
+<item name = "Date">Wed Aug 10 16:30:11 2022
+</item>
+<item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
+<item name = "Project">myproject_prj</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00 ns, 4.429 ns, 0.62 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">11991005, 12406749, 59.955 ms, 62.034 ms, 11892738, 12308482, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config12_s_fu_404">conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config12_s, 2771551, 2952901, 13.858 ms, 14.765 ms, 2771551, 2952901, none</column>
+<column name="grp_conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config9_s_fu_424">conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config9_s, 1969247, 2118949, 9.846 ms, 10.595 ms, 1969247, 2118949, none</column>
+<column name="grp_conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config5_s_fu_444">conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config5_s, 11892737, 12308481, 59.464 ms, 61.542 ms, 11892737, 12308481, none</column>
+<column name="grp_conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config2_s_fu_464">conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config2_s, 1362925, 1530545, 6.815 ms, 7.653 ms, 1362925, 1530545, none</column>
+<column name="grp_pooling2d_large_cl_nopad_pad_me_fu_484">pooling2d_large_cl_nopad_pad_me, 251473, 565306, 1.257 ms, 2.827 ms, 251473, 565306, none</column>
+<column name="grp_pooling2d_large_cl_nopad_pad_me_ap_fixed_ap_fixed_config8_s_fu_628">pooling2d_large_cl_nopad_pad_me_ap_fixed_ap_fixed_config8_s, 648001, 1484101, 3.240 ms, 7.421 ms, 648001, 1484101, none</column>
+<column name="grp_dense_ss_ap_fixed_ap_fixed_16_4_5_3_0_config17_s_fu_708">dense_ss_ap_fixed_ap_fixed_16_4_5_3_0_config17_s, 2314, 2314, 11.570 us, 11.570 us, 2314, 2314, none</column>
+<column name="grp_zeropad2d_cl_me_ap_fixed_ap_fixed_config21_s_fu_716">zeropad2d_cl_me_ap_fixed_ap_fixed_config21_s, 9829, 9829, 49.145 us, 49.145 us, 9829, 9829, none</column>
+<column name="grp_zeropad2d_cl_me_ap_fixed_ap_fixed_config20_s_fu_722">zeropad2d_cl_me_ap_fixed_ap_fixed_config20_s, 5783, 5783, 28.915 us, 28.915 us, 5783, 5783, none</column>
+<column name="grp_sigmoid_me_ap_fixed_ap_fixed_sigmoid_config19_s_fu_729">sigmoid_me_ap_fixed_ap_fixed_sigmoid_config19_s, 31, 31, 0.155 us, 0.155 us, 31, 31, none</column>
+<column name="grp_relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config4_s_fu_738">relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config4_s, 98305, 98305, 0.492 ms, 0.492 ms, 98305, 98305, none</column>
+<column name="grp_relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config7_s_fu_744">relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config7_s, 86401, 86401, 0.432 ms, 0.432 ms, 86401, 86401, none</column>
+<column name="grp_relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config11_s_fu_750">relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config11_s, 43201, 43201, 0.216 ms, 0.216 ms, 43201, 43201, none</column>
+<column name="grp_relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config14_s_fu_756">relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config14_s, 32449, 32449, 0.162 ms, 0.162 ms, 32449, 32449, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

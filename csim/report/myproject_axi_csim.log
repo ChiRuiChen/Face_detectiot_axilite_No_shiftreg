@@ -1,0 +1,124 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../myproject_test.cpp in debug mode
+   Compiling ../../../../firmware/myproject.cpp in debug mode
+   Compiling ../../../../firmware/myproject_axi.cpp in debug mode
+   Generating csim.exe
+Processing input 0
+conv2d_input
+zp2d_conv2d
+conv2d
+USE CONV2D BUFFER
+activation
+conv2d_1
+USE CONV2D BUFFER
+activation_1
+max_pooling2d
+USE POOL2D LARGE
+zp2d_conv2d_2
+conv2d_2
+USE CONV2D BUFFER
+activation_2
+conv2d_3
+USE CONV2D BUFFER
+activation_3
+max_pooling2d_1
+USE POOL2D LARGE
+flatten
+q_dense_1
+people
+Predictions
+0.626115 4.56011e-41 -1.24606 4.56011e-41 2.31949e-38 
+Quantized predictions
+0.99707 0.464844 0.577148 0.581055 0.545898 
+conv2d_input
+zp2d_conv2d
+conv2d
+USE CONV2D BUFFER
+activation
+conv2d_1
+USE CONV2D BUFFER
+activation_1
+max_pooling2d
+USE POOL2D LARGE
+zp2d_conv2d_2
+conv2d_2
+USE CONV2D BUFFER
+activation_2
+conv2d_3
+USE CONV2D BUFFER
+activation_3
+max_pooling2d_1
+USE POOL2D LARGE
+flatten
+q_dense_1
+people
+conv2d_input
+zp2d_conv2d
+conv2d
+USE CONV2D BUFFER
+activation
+conv2d_1
+USE CONV2D BUFFER
+activation_1
+max_pooling2d
+USE POOL2D LARGE
+zp2d_conv2d_2
+conv2d_2
+USE CONV2D BUFFER
+activation_2
+conv2d_3
+USE CONV2D BUFFER
+activation_3
+max_pooling2d_1
+USE POOL2D LARGE
+flatten
+q_dense_1
+people
+conv2d_input
+zp2d_conv2d
+conv2d
+USE CONV2D BUFFER
+activation
+conv2d_1
+USE CONV2D BUFFER
+activation_1
+max_pooling2d
+USE POOL2D LARGE
+zp2d_conv2d_2
+conv2d_2
+USE CONV2D BUFFER
+activation_2
+conv2d_3
+USE CONV2D BUFFER
+activation_3
+max_pooling2d_1
+USE POOL2D LARGE
+flatten
+q_dense_1
+people
+conv2d_input
+zp2d_conv2d
+conv2d
+USE CONV2D BUFFER
+activation
+conv2d_1
+USE CONV2D BUFFER
+activation_1
+max_pooling2d
+USE POOL2D LARGE
+zp2d_conv2d_2
+conv2d_2
+USE CONV2D BUFFER
+activation_2
+conv2d_3
+USE CONV2D BUFFER
+activation_3
+max_pooling2d_1
+USE POOL2D LARGE
+flatten
+q_dense_1
+people
+INFO: Saved inference results to file: tb_data/csim_results.log
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

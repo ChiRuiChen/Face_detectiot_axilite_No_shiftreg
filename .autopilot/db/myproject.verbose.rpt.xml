@@ -1,0 +1,160 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'myproject'" level="0">
+<item name = "Date">Wed Aug 10 16:30:33 2022
+</item>
+<item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
+<item name = "Project">myproject_prj</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00 ns, 4.429 ns, 0.62 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">11991005, 12406749, 59.955 ms, 62.034 ms, 11892738, 12308482, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config12_U0">conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config12_s, 2771551, 2952901, 13.858 ms, 14.765 ms, 2771551, 2952901, none</column>
+<column name="conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config9_U0">conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config9_s, 1969247, 2118949, 9.846 ms, 10.595 ms, 1969247, 2118949, none</column>
+<column name="conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config5_U0">conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config5_s, 11892737, 12308481, 59.464 ms, 61.542 ms, 11892737, 12308481, none</column>
+<column name="conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config2_U0">conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config2_s, 1362925, 1530545, 6.815 ms, 7.653 ms, 1362925, 1530545, none</column>
+<column name="pooling2d_large_cl_nopad_pad_me_U0">pooling2d_large_cl_nopad_pad_me, 251473, 565306, 1.257 ms, 2.827 ms, 251473, 565306, none</column>
+<column name="pooling2d_large_cl_nopad_pad_me_ap_fixed_ap_fixed_config8_U0">pooling2d_large_cl_nopad_pad_me_ap_fixed_ap_fixed_config8_s, 648001, 1484101, 3.240 ms, 7.421 ms, 648001, 1484101, none</column>
+<column name="dense_ss_ap_fixed_ap_fixed_16_4_5_3_0_config17_U0">dense_ss_ap_fixed_ap_fixed_16_4_5_3_0_config17_s, 2314, 2314, 11.570 us, 11.570 us, 2314, 2314, none</column>
+<column name="zeropad2d_cl_me_ap_fixed_ap_fixed_config21_U0">zeropad2d_cl_me_ap_fixed_ap_fixed_config21_s, 9829, 9829, 49.145 us, 49.145 us, 9829, 9829, none</column>
+<column name="zeropad2d_cl_me_ap_fixed_ap_fixed_config20_U0">zeropad2d_cl_me_ap_fixed_ap_fixed_config20_s, 5783, 5783, 28.915 us, 28.915 us, 5783, 5783, none</column>
+<column name="sigmoid_me_ap_fixed_ap_fixed_sigmoid_config19_U0">sigmoid_me_ap_fixed_ap_fixed_sigmoid_config19_s, 31, 31, 0.155 us, 0.155 us, 31, 31, none</column>
+<column name="relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config4_U0">relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config4_s, 98305, 98305, 0.492 ms, 0.492 ms, 98305, 98305, none</column>
+<column name="relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config7_U0">relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config7_s, 86401, 86401, 0.432 ms, 0.432 ms, 86401, 86401, none</column>
+<column name="relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config11_U0">relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config11_s, 43201, 43201, 0.216 ms, 0.216 ms, 43201, 43201, none</column>
+<column name="relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config14_U0">relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config14_s, 32449, 32449, 0.162 ms, 0.162 ms, 32449, 32449, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 2, -</column>
+<column name="FIFO">0, -, 65, 364, -</column>
+<column name="Instance">77, 197, 21786, 22405, 0</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, -, 9, -</column>
+<column name="Register">-, -, 1, -, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
+<specialColumn name="Utilization (%)">27, 89, 20, 42, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config12_U0">conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config12_s, 28, 64, 3722, 4282, 0</column>
+<column name="conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config2_U0">conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config2_s, 8, 32, 2385, 3017, 0</column>
+<column name="conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config5_U0">conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config5_s, 11, 32, 2362, 2978, 0</column>
+<column name="conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config9_U0">conv_2d_cl_me_ap_fixed_ap_fixed_16_4_5_3_0_config9_s, 16, 64, 3742, 4302, 0</column>
+<column name="dense_ss_ap_fixed_ap_fixed_16_4_5_3_0_config17_U0">dense_ss_ap_fixed_ap_fixed_16_4_5_3_0_config17_s, 8, 5, 400, 375, 0</column>
+<column name="pooling2d_large_cl_nopad_pad_me_U0">pooling2d_large_cl_nopad_pad_me, 3, 0, 5838, 3526, 0</column>
+<column name="pooling2d_large_cl_nopad_pad_me_ap_fixed_ap_fixed_config8_U0">pooling2d_large_cl_nopad_pad_me_ap_fixed_ap_fixed_config8_s, 2, 0, 2779, 2360, 0</column>
+<column name="relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config11_U0">relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config11_s, 0, 0, 80, 136, 0</column>
+<column name="relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config14_U0">relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config14_s, 0, 0, 80, 136, 0</column>
+<column name="relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config4_U0">relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config4_s, 0, 0, 84, 145, 0</column>
+<column name="relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config7_U0">relu_me_ap_fixed_ap_fixed_16_4_5_3_0_relu_config7_s, 0, 0, 82, 138, 0</column>
+<column name="sigmoid_me_ap_fixed_ap_fixed_sigmoid_config19_U0">sigmoid_me_ap_fixed_ap_fixed_sigmoid_config19_s, 1, 0, 84, 202, 0</column>
+<column name="zeropad2d_cl_me_ap_fixed_ap_fixed_config20_U0">zeropad2d_cl_me_ap_fixed_ap_fixed_config20_s, 0, 0, 70, 388, 0</column>
+<column name="zeropad2d_cl_me_ap_fixed_ap_fixed_config21_U0">zeropad2d_cl_me_ap_fixed_ap_fixed_config21_s, 0, 0, 78, 420, 0</column>
+</table>
+</item>
+<item name = "DSP48E"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+<column name="layer11_out_V_V_U">0, 5, 0, -, 1, 16, 16</column>
+<column name="layer12_out_V_V_U">0, 5, 0, -, 1, 16, 16</column>
+<column name="layer14_out_V_V_U">0, 5, 0, -, 1, 16, 16</column>
+<column name="layer15_out_V_V_U">0, 5, 0, -, 1, 16, 16</column>
+<column name="layer17_out_V_V_U">0, 5, 0, -, 1, 16, 16</column>
+<column name="layer20_out_V_V_U">0, 5, 0, -, 1, 16, 16</column>
+<column name="layer21_out_V_V_U">0, 5, 0, -, 1, 16, 16</column>
+<column name="layer2_out_V_V_U">0, 5, 0, -, 1, 16, 16</column>
+<column name="layer4_out_V_V_U">0, 5, 0, -, 1, 16, 16</column>
+<column name="layer5_out_V_V_U">0, 5, 0, -, 1, 16, 16</column>
+<column name="layer7_out_V_V_U">0, 5, 0, -, 1, 16, 16</column>
+<column name="layer8_out_V_V_U">0, 5, 0, -, 1, 16, 16</column>
+<column name="layer9_out_V_V_U">0, 5, 0, -, 1, 16, 16</column>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="ap_idle">and, 0, 0, 2, 1, 1</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="real_start">9, 2, 1, 2</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="start_once_reg">1, 0, 1, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_start">in, 1, ap_ctrl_hs, myproject, return value</column>
+<column name="start_full_n">in, 1, ap_ctrl_hs, myproject, return value</column>
+<column name="start_out">out, 1, ap_ctrl_hs, myproject, return value</column>
+<column name="start_write">out, 1, ap_ctrl_hs, myproject, return value</column>
+<column name="ap_clk">in, 1, ap_ctrl_hs, myproject, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, myproject, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, myproject, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, myproject, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, myproject, return value</column>
+<column name="ap_continue">in, 1, ap_ctrl_hs, myproject, return value</column>
+<column name="conv2d_input_V_V_dout">in, 16, ap_fifo, conv2d_input_V_V, pointer</column>
+<column name="conv2d_input_V_V_empty_n">in, 1, ap_fifo, conv2d_input_V_V, pointer</column>
+<column name="conv2d_input_V_V_read">out, 1, ap_fifo, conv2d_input_V_V, pointer</column>
+<column name="layer19_out_V_V_din">out, 16, ap_fifo, layer19_out_V_V, pointer</column>
+<column name="layer19_out_V_V_full_n">in, 1, ap_fifo, layer19_out_V_V, pointer</column>
+<column name="layer19_out_V_V_write">out, 1, ap_fifo, layer19_out_V_V, pointer</column>
+</table>
+</item>
+</section>
+</profile>
